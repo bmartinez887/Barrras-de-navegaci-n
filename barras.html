@@ -5,43 +5,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barras Nav - flexbox</title>
-    
+
     <style>
-        .top-bar{
+        .top-bar {
             display: flex;
             justify-content: space-between;
         }
-        .top-middle-text{
+
+        .top-middle-text {
             display: flex;
 
         }
-        .top-right-text{
-            display: flex;
-            
-        }
-           .middle-bar{
-            display: flex;
-            justify-content: space-between;
-        }
-        .middle-left-text{
+
+        .top-right-text {
             display: flex;
 
         }
-          .top-right-text{
-            display: flex;
-            
-        }
-           .bottom-bar{
+
+        .middle-bar {
             display: flex;
             justify-content: space-between;
         }
-        .bottom-left-text{
+
+        .middle-left-text {
+            display: flex;
+
+        }
+
+        .top-right-text {
+            display: flex;
+
+        }
+
+        .bottom-bar {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bottom-left-text {
             display: flex;
         }
-        .bottom-right-text{
+
+        .bottom-right-text {
             display: flex;
         }
-        
+/*
+        .bars {
+            display: flex;
+            flex-wrap: wrap;
+        }
+*/
+        /*.bars div {
+            flex: 1 1 33.33%;
+            height: 300px;
+            font-size: 25px;
+        }
+*/
+        .show-desktop {
+            display: block;
+        }
+
+        .show-mobile {
+            display: none;
+        }
+
+        .h2 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        @media(max-width: 900px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+
+            }
+
+            .middle-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .bottom-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .show-desktop {
+                display: none;
+            }
+
+            .show-mobile {
+                display: block;
+            }
+            .top-middle-text{
+                align-items: center
+                ;
+            }
+        }
+
+        @media(max-width: 400px) {
+            .top-middle-text {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .bottom-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .bars div {
+                flex: 1 1 100%;
+                height: 300px;
+                font-size: 25px;
+            }
+        }
     </style>
 </head>
 
@@ -52,20 +155,30 @@
                 <h1>LOGOBAKERY</h1>
             </div>
             <div class="top-middle-text">
-                <h2>Services</h2>
-                <h2>Projects</h2>
-                <h2>About</h2>
+                <div class="h2">
+                    <h2>Services</h2>
+                </div>
+                <div class="h2">
+                    <h2>Projects</h2>
+                </div>
+                <div class="h2">
+                    <h2>About</h2>
+                </div>
+                <div class="h2 show-mobile">
+                    <h2>Contact</h2>
+                </div>
+
             </div>
-            <div class="top-right-text">
-                <h2>Contact</h2>
+            <div class="top-right-text show-desktop">
+                <h2 class="h2">Contact</h2>
             </div>
         </div>
         <div class="middle-bar">
             <div class="middle-left-text">
-                <h2>Services</h2>
-                <h2>Projects</h2>
-                <h2>About</h2>
-                <h2>Contact</h2>
+                <h2 class="h2">Services</h2>
+                <h2 class="h2">Projects</h2>
+                <h2 class="h2">About</h2>
+                <h2 class="'h2">Contact</h2>
             </div>
             <div class="middle-right-text">
                 <h1>LOGOBAKERY</h1>
@@ -76,10 +189,10 @@
                 <h1>LOGOBAKERY</h1>
             </div>
             <div class="bottom-right-text">
-                <h2>Services</h2>
-                <h2>Projects</h2>
-                <h2>About</h2>
-                <h2>Contact</h2>
+                <h2 class="h2">Services</h2>
+                <h2 class="h2">Projects</h2>
+                <h2 class="h2">About</h2>
+                <h2 class="h2">Contact</h2>
             </div>
         </div>
     </div>
