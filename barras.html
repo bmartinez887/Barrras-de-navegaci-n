@@ -7,60 +7,48 @@
     <title>Barras Nav - flexbox</title>
 
     <style>
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .top-middle-text {
-            display: flex;
+        body {
+            margin: 0;
 
         }
 
-        .top-right-text {
-            display: flex;
-
-        }
-
-        .middle-bar {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .middle-left-text {
-            display: flex;
-
-        }
-
-        .top-right-text {
-            display: flex;
-
-        }
-
+        .top-bar,
+        .middle-bar,
         .bottom-bar {
             display: flex;
             justify-content: space-between;
+
+
+            margin-bottom: 200px;
         }
 
+        .top-left-text,
+        .middle-right-text,
         .bottom-left-text {
             display: flex;
+            font-size: small;
         }
 
+        .top-middle-text,
+        .middle-left-text,
         .bottom-right-text {
             display: flex;
+            align-items: center;
+            font-size: small;
         }
-/*
-        .bars {
+
+        .top-right-text,
+        .contact {
             display: flex;
-            flex-wrap: wrap;
+
+            font-size: small;
         }
-*/
-        /*.bars div {
-            flex: 1 1 33.33%;
-            height: 300px;
-            font-size: 25px;
+
+        .h2 {
+            padding-left: 10px;
+            padding-right: 10px;
         }
-*/
+
         .show-desktop {
             display: block;
         }
@@ -69,35 +57,38 @@
             display: none;
         }
 
-        .h2 {
-            padding-left: 10px;
-            padding-right: 10px;
+        .X {
+            display: flex;
+
         }
 
-        @media(max-width: 900px) {
-            .top-bar {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                display: flex;
-                flex-wrap: wrap;
+        @media (max-width: 900px) {
 
-            }
-
-            .middle-bar {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                display: flex;
-                flex-wrap: wrap;
-            }
-
+            .top-bar,
+            .middle-bar,
             .bottom-bar {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
                 display: flex;
                 flex-wrap: wrap;
+            }
+
+            .top-middle-text,
+            .middle-left-text,
+            .bottom-right-text {
+                flex-wrap: wrap;
+            }
+
+            .h2 {
+                flex: 1 1 50%;
+                padding-left: 0;
+                padding-right: 0;
+                display: flex;
+            }
+
+            .show-menu {
+                display: none;
             }
 
             .show-desktop {
@@ -106,43 +97,18 @@
 
             .show-mobile {
                 display: block;
-            }
-            .top-middle-text{
-                align-items: center
-                ;
+                text-align: left;
             }
         }
 
-        @media(max-width: 400px) {
-            .top-middle-text {
+        @media (max-width: 400px) {
+
+            .top-middle-text,
+            .middle-left-text,
+            .bottom-right-text {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
-                display: flex;
-                flex-wrap: wrap;
-
-            }
-
-            .top-bar {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                display: flex;
-                flex-wrap: wrap;
-            }
-
-            .bottom-bar {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                display: flex;
-                flex-wrap: wrap;
-            }
-
-            .bars div {
-                flex: 1 1 100%;
-                height: 300px;
-                font-size: 25px;
             }
         }
     </style>
@@ -150,11 +116,18 @@
 
 <body>
     <div class="bars">
+
         <div class="top-bar">
+            <div class="menu show-mobile">
+                <h2 class="puntitos">...</h2>
+            </div>
+
+
             <div class="top-left-text">
                 <h1>LOGOBAKERY</h1>
             </div>
-            <div class="top-middle-text">
+
+            <div class="top-middle-text show-menu" id="menu-show">
                 <div class="h2">
                     <h2>Services</h2>
                 </div>
@@ -167,7 +140,9 @@
                 <div class="h2 show-mobile">
                     <h2>Contact</h2>
                 </div>
-
+                <div class="close" id="cerrar">
+                    <h2 class="X">X</h2>
+                </div>
             </div>
             <div class="top-right-text show-desktop">
                 <h2 class="h2">Contact</h2>
@@ -196,4 +171,14 @@
             </div>
         </div>
     </div>
+    <script>
+        document.querySelector('.puntitos').addEventListener('click', function () {
+            console.log("click");
+            document.getElementById('menu-show').classList.remove('show-menu');
+        });
+        document.querySelector('.X').addEventListener('click', function () {
+            console.log("click");
+      document.getElementById('menu-show').classList.add('show-menu');
+    });
+    </script>
 </body>
